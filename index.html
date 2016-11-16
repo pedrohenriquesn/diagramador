@@ -21,15 +21,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/json/listas.js"></script>
     <script src="js/barras-menu.js"></script>
+    <script src="js/carregar-conteudo.js"></script>
     <script src="js/drag-drop.js"></script>
+
 
 </head>
 
 <body style="height: 5000px;" onload="carregaMaterias()">
-    
+
     <div class="alertErros">
-        <div class="notaErro erroLinha-js">ERRO: Linhas só podem ser inseridas dentro de colunas ou no corpo da pagina</div>
+        <div class="notaErro erroLinha-js">ERRO: Linhas só podem ser inseridas dentro de colunas ou no corpo da pagina.</div>
+        <div class="notaErro erroColuna-js">ERRO: Colunas só podem ser inseridas dentro de linhas.</div>
+        <div class="notaErro erroMateria-js">ERRO: Materias só podem ser inseridas dentro de colunas.</div>
     </div>
+
     <div class="barra-menu">
         <div class="box-materias">
             <div class="box-name" id="menu-toggle">Materias</div>
@@ -68,7 +73,7 @@
         <!-- /#sidebar-materias -->
 
         <div class="barra-sub-menu">
-            
+
         </div>
 
         <!-- Page Content -->
@@ -76,7 +81,7 @@
             <div class="container-fluid">
 
                 <div class="container-jornal drop-js" data-type="jornal">
-                    
+
                     <div class="row line-grid drop-js" data-type="row">
                         <div class="column-default col-md-6"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
                         <div class="column-default col-md-6"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
@@ -87,7 +92,7 @@
                     </div>
 
                     <div class="row line-grid drop-js" data-type="row"></div>
-                    
+
                 </div>
             </div>
         </div>

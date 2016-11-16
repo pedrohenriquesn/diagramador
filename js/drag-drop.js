@@ -55,23 +55,40 @@ document.addEventListener("dragleave", function( event ) {
 }, false);
 
 document.addEventListener("drop", function( event ) {
+    $(event.target).removeClass('droped-target-campo droped-target-linha droped-target-coluna')
     currentTarget = $(event.target).closest('.drop-js')[0]
     typeDrop = currentTarget.getAttribute('data-type')
 
     switch (currentDrag) {
         case 'linha':
             if ( typeDrop === 'col' || typeDrop === 'jornal'){
-                console.log("A linha pode ser inserida")
+                loader.linha(currentTarget, currentDrag)
             } else {
                 $(".erroLinha-js").slideToggle()
-                setTimeout(timeOutShow, 2000);
+                setTimeout(function(){
+                    $(".erroLinha-js").slideToggle()
+                }, 2000);
             }
             break;
-        case 'row':
-            debugger
+        case 'coluna':
+            if ( typeDrop != 'row' ) {
+                $(".erroColuna-js").slideToggle()
+                setTimeout(function(){
+                    $(".erroColuna-js").slideToggle()
+                }, 2000);
+            }else {
+                loader.coluna(currentTarget, currentDrag)
+            }
             break;
         case 'materia':
-            debugger
+            if ( typeDrop != 'col' ) {
+                $(".erroMateria-js").slideToggle()
+                setTimeout(function(){
+                    $(".erroMateria-js").slideToggle()
+                }, 2000);
+            }else {
+                console.log("A MATERIA pode ser inserida")
+            }
             break;
         // case '':
         //     debugger
@@ -80,6 +97,6 @@ document.addEventListener("drop", function( event ) {
 }, false);
 
 
-function timeOutShow() {
-$(".erroLinha-js").slideToggle()
-}
+// function timeOutShow() {
+// $(".erroLinha-js").slideToggle()
+// }

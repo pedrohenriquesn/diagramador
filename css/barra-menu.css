@@ -8,15 +8,18 @@
 	z-index: 999;
 }
 
-.box-menu { 
+.box-menu {
     padding: 0.6%;
     font-size: 14px;
 }
 
-.box-menu:hover { 
+.box-menu:hover {
 	cursor: pointer;
 	color: #0095DA;
 	border-bottom:3px solid #0095DA;
+}
+.box-menu.drag-js:hover {
+    cursor: move !important;
 }
 
 .box-materias {
@@ -34,7 +37,7 @@
     padding: 4%;
 }
 
-.pesquisa-materias { 
+.pesquisa-materias {
 	height: 100%;
     width: 20%;
 	background-color: #0095DA;
@@ -83,23 +86,6 @@
     z-index: 999;
 }
 
-
-.alertErros {
-    position: fixed;
-    z-index: 9999;
-    width: 100%;
-
-}
-
-.notaErro {
-    text-align: center;
-    background-color: red;
-    padding: 7px;
-    font-size: 18px;
-    font-family: monospace;
-    color: #FFF;
-    display: none;
-}
 
 
 

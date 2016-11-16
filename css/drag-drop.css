@@ -13,3 +13,21 @@
 .droped-target-coluna {
 	background-color: #FFE4C4;
 }
+
+.alertErros {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+
+}
+
+.notaErro {
+    text-align: center;
+    background-color: red;
+    padding: 7px;
+    font-size: 18px;
+    font-family: monospace;
+    color: #FFF;
+    display: none;
+}
+
