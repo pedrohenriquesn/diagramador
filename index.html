@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jornal do Senado</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/barra-menu.css" rel="stylesheet">
+    <link href="css/drag-drop.css" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/json/listas.js"></script>
+    <script src="js/barras-menu.js"></script>
+    <script src="js/drag-drop.js"></script>
+
+</head>
+
+<body style="height: 5000px;" onload="carregaMaterias()">
+    
+    <div class="alertErros">
+        <div class="notaErro erroLinha-js">ERRO: Linhas só podem ser inseridas dentro de colunas ou no corpo da pagina</div>
+    </div>
+    <div class="barra-menu">
+        <div class="box-materias">
+            <div class="box-name" id="menu-toggle">Materias</div>
+            <div class="pesquisa-materias"><span class="glyphicon glyphicon-search"></span></div>
+        </div>
+
+        <div class="box-menu drag-js" draggable="true" data-type="linha">
+            <img src="imagens/linha.svg">
+        </div>
+        <div class="box-menu drag-js" draggable="true" data-type="coluna">
+            <img src="imagens/coluna.svg">
+        </div>
+
+        <div class="box-menu">
+            <span class="glyphicon glyphicon-asterisk"></span> Logo
+        </div>
+        <div class="box-menu">
+            <span class="glyphicon glyphicon-info-sign"></span> Tutorial
+        </div>
+        <div class="box-menu">
+            <span class="glyphicon glyphicon-th"></span> Layout
+        </div>
+
+        <div class="box-menu">
+            <span class="glyphicon glyphicon-list"></span> Lista
+        </div>
+    </div>
+
+    <div id="container-page">
+        <!-- Sidebar -->
+        <div id="sidebar-materias">
+            <div class="input-pesquisa">
+                <input type="text" name="pesquisa" placeholder="Pesquise aqui" />
+            </div>
+        </div>
+        <!-- /#sidebar-materias -->
+
+        <div class="barra-sub-menu">
+            
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-container-page">
+            <div class="container-fluid">
+
+                <div class="container-jornal drop-js" data-type="jornal">
+                    
+                    <div class="row line-grid drop-js" data-type="row">
+                        <div class="column-default col-md-6"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                        <div class="column-default col-md-6"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                        <div class="column-default col-md-12"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                        <div class="column-default col-md-4"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                        <div class="column-default col-md-4"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                        <div class="column-default col-md-4"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                    </div>
+
+                    <div class="row line-grid drop-js" data-type="row"></div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-container-page -->
+
+    </div>
+    <!-- /#container-page -->
+
+</body>
+
+</html>
