@@ -23,6 +23,7 @@
     <script src="js/barras-menu.js"></script>
     <script src="js/carregar-conteudo.js"></script>
     <script src="js/drag-drop.js"></script>
+    <script src="js/submenu.js"></script>
 
 
 </head>
@@ -33,11 +34,14 @@
         <div class="notaErro erroLinha-js">ERRO: Linhas só podem ser inseridas dentro de colunas ou no corpo da pagina.</div>
         <div class="notaErro erroColuna-js">ERRO: Colunas só podem ser inseridas dentro de linhas.</div>
         <div class="notaErro erroMateria-js">ERRO: Materias só podem ser inseridas dentro de colunas.</div>
+        <div class="notaErro erroSubmenu-js">Outra Coluna esta em edicao no momento.</div>
+        <div class="notaErro erroMinColuna-js">A coluna esta no menor tamanho permitido.</div>
+        <div class="notaErro erroMaxColuna-js">A coluna esta no maior tamanho permitido.</div>
     </div>
 
     <div class="barra-menu">
         <div class="box-materias">
-            <div class="box-name" id="menu-toggle">Materias</div>
+            <div class="box-name" id="menu-toggle">Lista de materias</div>
             <div class="pesquisa-materias"><span class="glyphicon glyphicon-search"></span></div>
         </div>
 
@@ -73,7 +77,61 @@
         <!-- /#sidebar-materias -->
 
         <div class="barra-sub-menu">
-
+            <div class="sub-menu">
+                <div class="box-submenu sair-js" data-toggle="tooltip" data-placement="top" title="Sair">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                </div>
+                <div class="box-submenu diminuir-js" data-toggle="tooltip" data-placement="top" title="Diminuir coluna">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </div>
+                <div class="box-submenu aumentar-js" data-toggle="tooltip" data-placement="top" title="Aumentar coluna">
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                </div>
+                <div class="box-submenu" data-toggle="tooltip" data-placement="top" title="Posicionar imagem">
+                    <span class="glyphicon glyphicon-picture"></span>
+                </div>
+                <div class="box-submenu" data-toggle="tooltip" data-placement="top" title="Edicao de texto">
+                    <span class="glyphicon glyphicon-font"></span>
+                </div>
+                <div class="box-submenu" data-toggle="tooltip" data-placement="top" title="Add conteudo">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </div>
+                <div class="box-submenu action-drop" data-toggle="tooltip" data-placement="top" title="Add/Remover elementos">
+                    <span class="glyphicon glyphicon-eye-close"></span>
+                    <div class="drop-submenu">
+                        <div class="op-drop"></div>
+                        <div class="op-drop"></div>
+                        <div class="op-drop"></div>
+                        <div class="op-drop"></div>
+                        <div class="op-drop"></div>
+                    </div>
+                </div>
+                <div class="box-submenu action-drop" data-toggle="tooltip" data-placement="top" title="Bordas">
+                    <span class="glyphicon glyphicon-unchecked"></span>
+                    <div class="drop-submenu">
+                        <div class="op-drop">
+                            <div class="linha-topo"></div>
+                            <span>Borda no topo</span>
+                        </div>
+                        <div class="op-drop">
+                            <div class="linha-baixo"></div>
+                            <span>Barra na base</span>
+                        </div>
+                        <div class="op-drop">
+                            <div class="linha-direita"></div>
+                            <span>Barra a direita</span>
+                        </div>
+                        <div class="op-drop">
+                            <div class="linha-esquerda"></div>
+                            <span>Barra a esquerda</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-submenu excluir-js" data-toggle="tooltip" data-placement="top" title="Remover coluna">
+                    <span class="glyphicon glyphicon-remove-circle">
+                </div>
+                <div class="box-submenu"></div>
+            </div>
         </div>
 
         <!-- Page Content -->
@@ -83,12 +141,12 @@
                 <div class="container-jornal drop-js" data-type="jornal">
 
                     <div class="row line-grid drop-js" data-type="row">
-                        <div class="column-default col-md-6"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
-                        <div class="column-default col-md-6"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                        <div class="column-default col-md-6"> <div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                        <div class="column-default col-md-6"> <div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
                         <div class="column-default col-md-12"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
-                        <div class="column-default col-md-4"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
-                        <div class="column-default col-md-4"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
-                        <div class="column-default col-md-4"><div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                        <div class="column-default col-md-4"> <div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                        <div class="column-default col-md-4"> <div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
+                        <div class="column-default col-md-4"> <div class="column-grid drop-js" data-type="col"><button type="button" class="btn btn-info btn-xs config"><span class="glyphicon glyphicon-cog"></span></button></div></div>
                     </div>
 
                     <div class="row line-grid drop-js" data-type="row"></div>

@@ -20,6 +20,7 @@
     height: 100%;
     margin-left: -200px;
     margin-top: 40px;
+    box-shadow: 2px 5px 15px #888;
     overflow-y: auto;
     background: #F3F3F3;
     border-right: 1px solid #0095DA;
@@ -30,7 +31,7 @@
 }
 
 .container-fluid {
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 #container-page.revezar #sidebar-materias {

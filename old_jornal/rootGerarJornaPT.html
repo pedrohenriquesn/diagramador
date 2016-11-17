@@ -1,0 +1,790 @@
+<tal:document metal:use-macro="context/main_template/macros/master">
+
+    <metal:styleslot fill-slot="style_slot">
+        <link rel="stylesheet" type="text/css" href="/noticias/++resource++senado.noticias/css/root_gerarjornal.css"/>
+        <link rel="stylesheet" type="text/css" href="/noticias/++resource++senado.noticias/css/jornal/jornal_main.css"/>
+        <link rel="stylesheet" type="text/css" href="/noticias/++resource++senado.noticias/css/jornal/criacao_logo.css"/>
+    </metal:styleslot>
+
+    <metal:main fill-slot="conteudo-principal">
+
+        <div class="container" onselectstart="return false">
+            <metal:main-macro define-macro="main">
+                <input type="hidden" id="urlSender" tal:attributes='value python:view.context.absolute_url()'>
+
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <img  class="img-responsive logo-jornal" tal:attributes="src string:${portal_url}/++resource++senado.noticias/img/jornal/logo_jornal.svg" />
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+
+                <div class="row">
+                    <div id="content-core" tal:content="structure view/contents"/>
+                    <tal:comment tal:replace="nothing">
+                        O javascript deve vir ao final porque o template no corpo da página que renderiza
+                        o calendário de seleção de datas dá um unbind no trigger change do calendário
+                    </tal:comment>
+                    <script type="text/javascript"
+                            tal:attributes="src string:${navroot}/++resource++senado.noticias/script/root_gerarjornal.js">
+                    </script>
+                </div>
+
+                <!--INICIO DA CRIAÇÃO DO JORNAL-->
+                <div class="row" id="jornal-senado">
+                    <div class="col-md-2" id="fix-list">
+                        <div class="newszone">
+                            <table class="tabela-pesquisa">
+                                <div class="campo-pesquisa">
+                                    <span class="glyphicon glyphicon-search icon-pesquisa"> Pesquisa</span>
+                                    <input type="text" class="input-search" alt="tabela-pesquisa" />
+                                </div>
+                                <tbody class="tabela-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-md-offset-1 col-md-9" id="tools-bar">
+                        <div class="setting-bars">
+                            <div class="toolbar-main">
+                                <nav class="menu">
+                                    <ul>
+                                        <li draggable="true" data-type="row"><span class="glyphicon glyphicon-plus-sign"></span> █████</li>
+                                        <li draggable="true" data-type="col"><span class="glyphicon glyphicon-plus-sign"></span> █ █ █</li>
+                                        <li class="logotipo" data-toggle="modal" data-target="#configuracao-logo">
+                                            <span class="glyphicon glyphicon-certificate"></span> Logo
+                                        </li>
+                                        <li class="preview"><span class="glyphicon glyphicon-file"></span>Renderizar Jornal</li>
+                                        <li class="help"><span class="glyphicon glyphicon-question-sign"></span></li>
+                                        <!--<li><span class="glyphicon glyphicon-fullscreen dropdown-toggle" data-toggle="dropdown"></span></li>-->
+                                        <li><span class="glyphicon glyphicon-th layout-js"></span></li>
+                                        <div class="drop-layout">
+
+                                            <div class="nav-menu">
+                                                <div class="op-menu active-tab">Matéria</div>
+                                                <div class="op-menu">Páginas</div>
+                                            </div>
+                                            <!--<div class="conteudo-layout">-->
+                                                <div class="tab-layout show-tab">
+                                                    <div class="line-menu">
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-12-col-6-col-6-col-12"><!-- TEMPLATE 01 -->
+                                                            <div class="desc-layout"><small>col-12; col-6; col-6; col-12;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0"  width="48" /><rect style="fill:#000000" height="14" x="0"  y="34" width="48" /><rect style="fill:#000000" height="14" x="0"  y="17" width="22" /><rect style="fill:#000000" height="14" x="26" y="17" width="22" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-12-col-12-col-6-col-6"><!-- TEMPLATE 02 -->
+                                                            <div class="desc-layout"><small>col-12; col-12; col-6; col-6;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0"  width="48" /><rect style="fill:#000000" height="14" x="0"  y="17" width="48" /><rect style="fill:#000000" height="14" x="0"  y="34" width="22" /><rect style="fill:#000000" height="14" x="26" y="34" width="22" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-12-col-6-col-6"><!-- TEMPLATE 03 -->
+                                                            <div class="desc-layout"><small>col-12; col-6; col-6;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0"  width="48" /><rect style="fill:#000000" height="14" x="0"  y="18" width="22" /><rect style="fill:#000000" height="14" x="26" y="18" width="22" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-12"><!-- TEMPLATE 04 -->
+                                                            <div class="desc-layout"><small>col-12;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0" y="0" width="48" /></g>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="line-menu">
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-6-col-6-col-6-col-6"><!-- TEMPLATE 05 -->
+                                                            <div class="desc-layout"><small>col-6; col-6; col-6; col-6;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="18" width="22" /><rect style="fill:#000000" height="14" x="26" y="18" width="22" /><rect style="fill:#000000" height="14" x="0"  y="0"  width="22" /><rect style="fill:#000000" height="14" x="26" y="0"  width="22" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-12-col-12-col-12"><!-- TEMPLATE 06 -->
+                                                            <div class="desc-layout"><small>col-12; col-12; col-12;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0" y="0"  width="48" /><rect style="fill:#000000" height="14" x="0" y="17" width="48" /><rect style="fill:#000000" height="14" x="0" y="34" width="48" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-12-col-12"><!-- TEMPLATE 07 -->
+                                                            <div class="desc-layout"><small>col-12; col-12;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0" y="0"  width="48" /><rect style="fill:#000000" height="14" x="0" y="17" width="48" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-12-col-4-col-8"><!-- TEMPLATE 08 -->
+                                                            <div class="desc-layout"><small>col-12; col-4; col-8;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0"  width="48" /><rect style="fill:#000000" height="14" x="0"  y="18" width="18" /><rect style="fill:#000000" height="14" x="21" y="18" width="27" /></g>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="line-menu">
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-12-col-8-col-4"><!-- TEMPLATE 09 -->
+                                                            <div class="desc-layout"><small>col-12; col-8; col-4;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0"  width="48" /><rect style="fill:#000000" height="14" x="30" y="18" width="18" /><rect style="fill:#000000" height="14" x="0"  y="18" width="27" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-12-col-4-col-4-col-4"><!-- TEMPLATE 10 -->
+                                                            <div class="desc-layout"><small>col-12; col-4; col-4; col-4;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0"  width="48" /><rect style="fill:#000000" height="14" x="0"  y="18" width="14" /><rect style="fill:#000000" height="14" x="17" y="18" width="14" /><rect style="fill:#000000" height="14" x="34" y="18" width="14" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-6-col-3-col-3"><!-- TEMPLATE 11 -->
+                                                            <div class="desc-layout"><small>col-6; col-3; col-3;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0" width="22" /><rect style="fill:#000000" height="14" x="24" y="0" width="11" /><rect style="fill:#000000" height="14" x="37" y="0" width="11" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-3-col-3-col-3-col-3"><!-- TEMPLATE 12 -->
+                                                            <div class="desc-layout"><small>col-3; col-3; col-3; col-3;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="25" y="0" width="10" /><rect style="fill:#000000" height="14" x="38" y="0" width="10" /><rect style="fill:#000000" height="14" x="13" y="0" width="10" /><rect style="fill:#000000" height="14" x="0"  y="0" width="10" /></g>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="line-menu">
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-6-col-6"><!-- TEMPLATE 13 -->
+                                                            <div class="desc-layout"><small>col-6; col-6;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0" width="22" /><rect style="fill:#000000" height="14" x="26" y="0" width="22" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-4-col-4-col-4"><!-- TEMPLATE 14 -->
+                                                            <div class="desc-layout"><small>col-4; col-4; col-4;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0" width="14" /><rect style="fill:#000000" height="14" x="17" y="0" width="14" /><rect style="fill:#000000" height="14" x="34" y="0" width="14" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-8-col-4"><!-- TEMPLATE 15 -->
+                                                            <div class="desc-layout"><small>col-8; col-4;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0" width="28" /><rect style="fill:#000000" height="14" x="32" y="0" width="16" /></g>
+                                                            </svg>
+                                                        </div>
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-4-col-8"><!-- TEMPLATE 16 -->
+                                                            <div class="desc-layout"><small>col-4;col-8;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="20" y="0" width="28" /><rect style="fill:#000000" height="14" x="0"  y="0" width="16" /></g>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="line-menu">
+                                                        <div draggable="true" class="col-menu" data-type="layout" data-template="col-12-col-4-col-4-col-4-col-12"><!-- TEMPLATE 17 -->
+                                                            <div class="desc-layout"><small>col-12; col-4; col-4; col-4; col-12;</small></div>
+                                                            <svg width="48" height="48">
+                                                                <g><rect style="fill:#000000" height="14" x="0"  y="0"  width="48" /><rect style="fill:#000000" height="14" x="0"  y="17" width="14" /><rect style="fill:#000000" height="14" x="17" y="17" width="14" /><rect style="fill:#000000" height="14" x="34" y="17" width="14" /><rect style="fill:#000000" height="14" x="0"  y="34" width="48" /></g>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-layout">
+                                                    <div class="line-menu">
+                                                        <div draggable="true" class="col-menu-page" data-type="template" data-template="template-one"><!-- TEMPLATE 01 -->
+                                                            <div class="desc-template"><small>Template 01</small></div>
+                                                            <svg width="39mm" height="51mm">
+                                                                <g transform="translate(0,-871.65354)">
+                                                                    <rect style="fill:#000000" width="134"       height="24.390245" x="2"           y="874.3623" />
+                                                                    <rect style="fill:#000000" width="82.952377" height="21.341465" x="2"           y="902.41095" />
+                                                                    <rect style="fill:#000000" width="47.219044" height="21.341465" x="88.780952"   y="902.41095" />
+                                                                    <rect style="fill:#000000" width="65.085709" height="21.341465" x="2"           y="927.41107" />
+                                                                    <rect style="fill:#000000" width="65.085709" height="21.341465" x="70.914291"   y="927.65491" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="21.341465" x="2"           y="952.41119" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="21.341465" x="37.09528"    y="952.41119" />
+                                                                    <rect style="fill:#000000" width="65.085709" height="21.341465" x="2"           y="977.41119" />
+                                                                    <rect style="fill:#000000" width="30.627172" height="45.731712" x="70.914291"   y="953.02069" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="45.731712" x="106.00951"   y="953.02069" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="21.341465" x="2.1581125"   y="1002.4111" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="21.341465" x="37.09528"    y="1002.4111" />
+                                                                    <rect style="fill:#000000" width="65.085709" height="21.341465" x="70.914291"   y="1002.4111" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="21.341465" x="2"           y="1028.0209" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="21.341465" x="37.09528"    y="1028.0209" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="21.341465" x="70.914291"   y="1028.0209" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="21.341465" x="106.00951"   y="1028.0209" />
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+
+                                                        <div draggable="true" class="col-menu-page" data-type="template" data-template="template-two"><!-- TEMPLATE 01 -->
+                                                            <div class="desc-template"><small>Template 02</small></div>
+                                                            <svg width="39mm" height="51mm">
+                                                                <g transform="translate(0,-871.65354)">
+                                                                    <rect style="fill:#000000" width="82.952385" height="21.56691" x="2"            y="874.36224" />
+                                                                    <rect style="fill:#000000" width="47.219051" height="21.56691" x="88.780952"    y="874.36224" />
+                                                                    <rect style="fill:#000000" width="82.952385" height="21.56691" x="2"            y="899.62616" />
+                                                                    <rect style="fill:#000000" width="47.219051" height="21.56691" x="88.78083"     y="899.62616" />
+                                                                    <rect style="fill:#000000" width="21.695238" height="21.56691" x="88.780952"    y="924.89044" />
+                                                                    <rect style="fill:#000000" width="21.695238" height="21.56691" x="114.30476"    y="924.89044" />
+                                                                    <rect style="fill:#000000" width="39.561909" height="21.56691" x="2"            y="924.89825" />
+                                                                    <rect style="fill:#000000" width="39.561909" height="21.56691" x="45.377045"    y="924.9068" />
+                                                                    <rect style="fill:#000000" width="64.447624" height="21.56691" x="2"            y="950.15436" />
+                                                                    <rect style="fill:#000000" width="64.447624" height="21.56691" x="71.551025"    y="950.15436" />
+                                                                    <rect style="fill:#000000" width="64.447624" height="21.56691" x="2"            y="976.0351" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="21.56691" x="2"            y="1001.9147" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="21.56691" x="36.457138"    y="1001.9147" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="48.0634"  x="71.552391"    y="975.41864" />
+                                                                    <rect style="fill:#000000" width="29.990475" height="48.0634"  x="106.00953"    y="975.41864" />
+                                                                    <rect style="fill:#000000" width="41.476192" height="21.56691" x="2"            y="1027.7953" />
+                                                                    <rect style="fill:#000000" width="41.476192" height="21.56691" x="48.580956"    y="1027.7953" />
+                                                                    <rect style="fill:#000000" width="41.476192" height="21.56691" x="94.523804"    y="1027.7953" />
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="line-menu">
+                                                        <div draggable="true" class="col-menu-page" data-type="template" data-template="template-three"><!-- TEMPLATE 01 -->
+                                                            <div class="desc-template"><small>Template 03</small></div>
+                                                            <svg width="39mm" height="51mm">
+                                                                <g transform="translate(0,-871.65354)">
+                                                                    <rect style="fill:#000000" width="134"       height="24.39024"  x="2"           y="874.3623" />
+                                                                    <rect style="fill:#000000" width="82.95237"  height="21.341463" x="2"           y="902.41095" />
+                                                                    <rect style="fill:#000000" width="47.219044" height="21.341463" x="88.78093"    y="902.41095" />
+                                                                    <rect style="fill:#000000" width="65.085716" height="21.341463" x="2"           y="927.41107" />
+                                                                    <rect style="fill:#000000" width="65.085716" height="21.341463" x="70.914268"   y="927.65491" />
+                                                                    <rect style="fill:#000000" width="29.990473" height="21.341463" x="2"           y="952.41119" />
+                                                                    <rect style="fill:#000000" width="29.990473" height="21.341463" x="37.095245"   y="952.41119" />
+                                                                    <rect style="fill:#000000" width="65.085716" height="21.341463" x="2"           y="977.41119" />
+                                                                    <rect style="fill:#000000" width="30.627169" height="45.731709" x="70.914268"   y="953.02069" />
+                                                                    <rect style="fill:#000000" width="29.990473" height="45.731709" x="106.0095"    y="953.02069" />
+                                                                    <rect style="fill:#000000" width="29.990473" height="21.341463" x="2.1581128"   y="1002.4111" />
+                                                                    <rect style="fill:#000000" width="29.990473" height="21.341463" x="37.095245"   y="1002.4111" />
+                                                                    <rect style="fill:#000000" width="65.085716" height="21.341463" x="70.914268"   y="1002.4111" />
+                                                                    <rect style="fill:#000000" width="29.990473" height="21.341463" x="2"           y="1028.0209" />
+                                                                    <rect style="fill:#000000" width="29.990473" height="21.341463" x="37.095245"   y="1028.0209" />
+                                                                    <rect style="fill:#000000" width="29.990473" height="21.341463" x="70.914268"   y="1028.0209" />
+                                                                    <rect style="fill:#000000" width="29.990473" height="21.341463" x="106.0095"    y="1028.0209" />
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <!--</div>-->
+
+                                        </div>
+
+
+                                        <li class="lista-materia" data-toggle="modal" data-target="#list-materias">
+                                            <span class="glyphicon glyphicon-th-list"></span> Lista
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+
+                            <div class="toolbar-col" style="display: none;">
+                                <nav class="menu-col">
+                                    <ul>
+                                        <li class="out-edit"><span class="glyphicon glyphicon-log-out"></span> Sair</li>
+                                        <li class="smaller"><span class="glyphicon glyphicon-arrow-left"></span></li>
+                                        <li class="larger"><span class="glyphicon glyphicon-arrow-right"></span></li>
+
+                                        <li class="dropdown tools-dropdown">
+                                            <span class="glyphicon glyphicon-picture dropdown-toggle" data-toggle="dropdown"></span>
+                                            <ul class="dropdown-menu dropmenu-style">
+                                                <div class="row config-img">
+                                                    <div class="col-md-3 position-img" data-img="top">
+                                                        <pre><small>Acima</small>
+                                                        <span class="glyphicon glyphicon-picture"></span>
+                                                    </div>
+                                                    <div class="col-md-3 position-img" data-img="down">
+                                                        <pre><small>Abaixo</small>
+                                                        <span class="glyphicon glyphicon-picture"></span>
+                                                    </div>
+                                                    <div class="col-md-3 position-img" data-img="left">
+                                                        <pre><small>Esquerda</small>
+                                                        <span class="glyphicon glyphicon-picture"></span>
+                                                    </div>
+                                                    <div class="col-md-3 position-img" data-img="right">
+                                                        <pre><small>Direita</small>
+                                                        <span class="glyphicon glyphicon-picture"></span>
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </li>
+
+                                        <li><span class="glyphicon glyphicon-font edit-txt" data-toggle="modal" data-target="#edicao-txt"></span></li>
+
+                                        <li><span class="glyphicon glyphicon-plus edit-ctd" data-toggle="modal" data-target="#add-conteudo"></span></li>
+
+                                        <li class="dropdown tools-dropdown">
+                                            <span class="dropdown-toggle" data-toggle="dropdown">
+                                                <span class="glyphicon glyphicon-eye-open"></span>
+                                                <span class="glyphicon glyphicon-eye-close"></span>
+                                            </span>
+                                            <ul class="dropdown-menu dropmenu-sh">
+                                                <div>
+                                                    <li class="disabled-label">Exibição do texto</li>
+                                                    <li class="show-hide" data-display="show-txt">Mostrar texto</li>
+                                                    <li class="show-hide" data-display="hide-txt">Esconder texto</li>
+                                                    <li class="disabled-label">Exibição da imagem</li>
+                                                    <li class="show-hide" data-display="show-img">Mostrar imagem</li>
+                                                    <li class="show-hide" data-display="hide-img">Esconder imagem</li>
+
+                                                </div>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown tools-dropdown">
+                                            <span class="dropdown-toggle" data-toggle="dropdown">
+                                                <span class="glyphicon glyphicon-retweet"></span>
+                                            </span>
+                                            <ul class="dropdown-menu dropmenu-sh">
+                                                <div>
+                                                    <li class="borda-position" data-position-border="borda-cima">
+                                                        <span class="glyphicon glyphicon-arrow-up"> Superior</span>
+                                                    </li>
+                                                    <li class="borda-position" data-position-border="borda-direita">
+                                                        <span class="glyphicon glyphicon-arrow-right"> Direita</span>
+                                                    </li>
+                                                    <li class="borda-position" data-position-border="borda-baixo">
+                                                        <span class="glyphicon glyphicon-arrow-down"> Inferior</span>
+                                                    </li>
+                                                    <li class="borda-position" data-position-border="borda-esquerda">
+                                                        <span class="glyphicon glyphicon-arrow-left"> Esquerda</span>
+                                                    </li>
+                                                    <li class="borda-position" data-position-border="borda-full">
+                                                        <span class="glyphicon glyphicon-minus"> Linha</span>
+                                                    </li>
+
+                                                </div>
+                                            </ul>
+                                        </li>
+                                        <li class="remove"><span class="glyphicon glyphicon-remove-circle"></span></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-offset-1 col-md-9" id="page-field">
+                        <div class="gridzone" data-type="page"><!--Área destinada para diagramar o jornal--></div>
+
+                        <!-- ############### MODAL COM LISTA DE MATERIAS ############### -->
+                        <div class="modal fade" id="list-materias" role="dialog" data-backdrop="static">
+                            <div class="modal-dialog modal-xs">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Materias usadas</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-list"></div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ############### /MODAL COM LISTA DE MATERIAS ############### -->
+                        <!-- ############### MODAL PARA ADICIONAR O CONTEUDO DA MATERIA ############### -->
+                        <div class="modal fade" id="add-conteudo" role="dialog" data-backdrop="static">
+                            <div class="modal-dialog modal-xs">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Adição do conteúdo</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <button type="button" id="original" class="btn btn-xs btn-info">Conteúdo original</button>
+                                        <button type="button" id="atual" class="btn btn-xs btn-success">Conteúdo atual</button>
+                                        <button type="button" id="limpar" class="btn btn-xs btn-danger">Limpar área</button>
+                                        <div class="form-group">
+                                            <label>Conteudo da matéria:</label>
+                                            <textarea class="form-control" rows="25" id="conteudo-area" placeholder="Edite o conteúdo"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger cancelar" data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-success salvar-conteudo" data-dismiss="modal">Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ############### /MODAL PARA ADICIONAR O CONTEUDO DA MATERIA ############### -->
+                        <!-- ############### MODAL DE EDIÇÃO DE TEXTO E TITULO ############### -->
+                        <div class="modal fade" id="edicao-txt" role="dialog" data-backdrop="static">
+                            <div class="modal-dialog modal-xs">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Configuração do texto</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <!-- ############### ESTILO / TAMANHO ############### -->
+                                            <div class="row line-editmodal">
+                                                <div class="col-md-6 descricao">Estilo</div>
+                                                <div class="col-md-6 descricao">Tamanho</div>
+                                                <!--TROCA ESTILO-->
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span class="label label-primary style-txt">
+                                                            <input type="checkbox" name="estilo" value="bold">
+                                                            <span class="glyphicon glyphicon-bold"></span>
+                                                        </span>
+                                                    </label>
+                                                    <label>
+                                                        <span class="label label-primary style-txt">
+                                                            <input type="checkbox" name="estilo" value="italic">
+                                                            <span class="glyphicon glyphicon-italic"></span>
+                                                        </span>
+                                                    </label>
+                                                    <label>
+                                                        <span class="label label-primary style-txt">
+                                                            <input type="checkbox" name="estilo" value="underline">
+                                                            <span class="glyphicon glyphicon-text-width"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                                <!--TAMANHO DA FONTE-->
+                                                <div class="col-md-2 col-md-offset-2">
+                                                    <select class="form-control size-font" name="sizefont">
+                                                        <option value="select">Selecione</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                        <option value="22">22</option>
+                                                        <option value="24">24</option>
+                                                        <option value="26">26</option>
+                                                        <option value="28">28</option>
+                                                        <option value="30">30</option>
+                                                        <option value="32">32</option>
+                                                        <option value="36">36</option>
+                                                        <option value="40">40</option>
+                                                        <option value="44">44</option>
+                                                        <option value="48">48</option>
+                                                        <option value="54">54</option>
+                                                        <option value="60">60</option>
+                                                        <option value="66">66</option>
+                                                        <option value="72">72</option>
+                                                        <option value="80">80</option>
+                                                        <option value="88">88</option>
+                                                        <option value="96">96</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- ############### ESTILO / TAMANHO ############### -->
+                                            <!-- ############### FONT ############### -->
+                                            <div class="row line-editmodal">
+                                                <div class="col-md-2 col-md-offset-2 descricao">Fonte</div>
+                                                <!--TIPO DA FONTE-->
+                                                <div class="col-md-6">
+                                                    <div>
+                                                        <select name="fonte" class="form-control name-font">
+                                                            <option value="select">select</option>
+                                                            <option value="Georgia">Georgia</option>
+                                                            <option value="Times New Roman">Times New Roman</option>
+                                                            <option value="Palatino">Palatino</option>
+                                                            <option value="Arial">Arial</option>
+                                                            <option value="Geneva">Geneva</option>
+                                                            <option value="Helvetica">Helvetica</option>
+                                                            <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                                                            <option value="Tahoma">Tahoma</option>
+                                                            <option value="Verdana">Verdana</option>
+                                                            <option value="Courier New">Courier New</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ############### FONT ############### -->
+                                            <!-- ############### ALINHAMENTO / UPCASE ############### -->
+                                            <div class="row line-editmodal">
+                                                <div class="col-md-6 descricao"><span>Alinhamento</span></div>
+                                                <div class="col-md-6 descricao"><span>Maiúscula</span></div>
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span class="label label-primary txt-alinhamento">
+                                                            <input type="radio" name="alinhamento" value="right">
+                                                            <span class="glyphicon glyphicon-align-right"></span>
+                                                        </span>
+                                                    </label>
+                                                    <label>
+                                                        <span class="label label-primary txt-alinhamento">
+                                                            <input type="radio" name="alinhamento" value="center">
+                                                            <span class="glyphicon glyphicon-align-center"></span>
+                                                        </span>
+                                                    </label>
+                                                    <label>
+                                                        <span class="label label-primary txt-alinhamento">
+                                                            <input type="radio" name="alinhamento" value="left">
+                                                            <span class="glyphicon glyphicon-align-left"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>
+                                                        <span class="label label-primary txt-case">
+                                                            <input type="checkbox" name="upcase" value="font-case">
+                                                            <span class="glyphicon glyphicon-font"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <!-- ############### ALINHAMENTO / UPCASE ############### -->
+                                            <!-- ############### COR DO TEXTO ############### -->
+                                            <div class="row line-editmodal">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-6 descricao"><span>Cor do texto</span></div>
+                                                    <div class="col-md-6">
+                                                        <input class="jscolor" id="cor-txt" value="000000">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ############### COR DO TEXTO ############### -->
+                                            <!-- ############### DESTAQUE ############### -->
+                                            <div class="row line-editmodal">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-6 descricao"><span>Título destaque</span></div>
+                                                    <div class="col-md-6">
+                                                        <label>
+                                                            <span class="label label-primary destaque-txt">
+                                                                <input type="checkbox" name="destaque" value="bold">
+                                                                <span class="glyphicon glyphicon-ok"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ############### DESTAQUE ############### -->
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger btn-cancelar" data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-success btn-salvar" data-dismiss="modal" data-typetxt="titulo">Título</button>
+                                        <button type="button" class="btn btn-info btn-salvar" data-dismiss="modal" data-typetxt="conteudo">Conteúdo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ############### MODAL DE EDIÇÃO DO TEXTO E TITULO ############### -->
+                        <!-- ############### MODAL EDICÃO PARA CRIAÇÃO DE LOGO ############### -->
+                        <div class="modal fade" id="configuracao-logo" role="dialog" data-backdrop="static">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content" style="width: 1000px;left: -30%;">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Criar logotipo</h4>
+                                    </div>
+                                    <div class="modal-body" style="min-height: 550px;">
+                                    <!--****************************** CORPO DA JANELA MODAL ******************************-->
+                                        <div class="row line-input">
+                                            <div class="col-md-3 qtd-caractere">Caracteres livre = <span class="num-qtd-livre">25</span></div>
+                                            <div class="col-md-6">
+                                                <div class="name-logo">
+                                                    <input type="text" class="box-name" maxlength="25">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 qtd-restante">Caracteres usadas = <span class="num-qtd-usado">0</span></div>
+                                        </div>
+                                        <!-- COLLAPSE DE EDIÇÃO DO TEXTO -->
+                                        <div class="panel-group area-edicao" id="accordion">
+                                            <!--########## COLLAPSE 1 ##########-->
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                                    <span>Estilo da borda</span><span class="glyphicon glyphicon-chevron-down icon-seta"></span>
+                                                </div>
+                                                <div id="collapse1" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <div class="row row-opcoes">
+                                                            <div class="col-md-4">
+                                                                <label>Estilo da Borda</label>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="btn-group" data-toggle="buttons">
+                                                                    <span class="btn btn-primary btn-borda" data-style="solid">
+                                                                        <input type="radio" class="style-borda"><span class="glyphicon glyphicon-ok"></span> Solid
+                                                                    </span>
+                                                                    <span class="btn btn-primary btn-borda" data-style="dotted">
+                                                                        <input type="radio" class="style-borda"><span class="glyphicon glyphicon-ok"></span> Dotted
+                                                                    </span>
+                                                                    <span class="btn btn-primary btn-borda" data-style="dashed">
+                                                                        <input type="radio" class="style-borda"><span class="glyphicon glyphicon-ok"></span> Dashed
+                                                                    </span>
+                                                                    <span class="btn btn-primary btn-borda" data-style="double">
+                                                                        <input type="radio" class="style-borda"><span class="glyphicon glyphicon-ok"></span> Double
+                                                                    </span>
+                                                                    <span class="btn btn-primary btn-borda" data-style="groove">
+                                                                        <input type="radio" class="style-borda"><span class="glyphicon glyphicon-ok"></span> Groove
+                                                                    </span>
+                                                                    <span class="btn btn-primary btn-borda" data-style="ridge">
+                                                                        <input type="radio" class="style-borda"><span class="glyphicon glyphicon-ok"></span> Ridge
+                                                                    </span>
+                                                                    <span class="btn btn-primary btn-borda" data-style="inset">
+                                                                        <input type="radio" class="style-borda"><span class="glyphicon glyphicon-ok"></span> Inset
+                                                                    </span>
+                                                                    <span class="btn btn-primary btn-borda" data-style="outset">
+                                                                        <input type="radio" class="style-borda"><span class="glyphicon glyphicon-ok"></span> Outset
+                                                                    </span>
+                                                                    <span class="btn btn-success btn-borda active" data-style="none">
+                                                                        <input type="radio" class="style-borda"><span class="glyphicon glyphicon-ok"></span> Sem borda
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-opcoes">
+                                                            <div class="col-md-4">
+                                                                <label>Tamanho da borda</label>
+                                                                <span class="val-range valor-size-borda">0</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="range" id="range-size-borda" min="0" max="15" value="0" step="1" style="width: 100%">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-opcoes">
+                                                            <div class="col-md-4">
+                                                                <label>Cor da borda</label>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input class="jscolor cor-borda" value="000000">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-opcoes">
+                                                            <div class="col-md-4">
+                                                                <label>Radius da borda</label>
+                                                                <span class="val-range valor-radius-borda">0</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="range" id="range-radius-borda" min="0" max="75" value="0" step="1" style="width: 100%">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--########## COLLAPSE 2 ##########-->
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading"  data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                                    <span>Estilo da Fonte</span><span class="glyphicon glyphicon-chevron-down icon-seta"></span>
+                                                </div>
+                                                <div id="collapse2" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <div class="row row-opcoes">
+                                                            <div class="col-md-4">Fonte</div>
+                                                            <div class="col-md-8">
+                                                                <select class="form-control select-font">
+                                                                    <option value="">Selecione uma fonte</option>
+                                                                    <option value="Georgia">Georgia</option>
+                                                                    <option value="Times New Roman">Times New Roman</option>
+                                                                    <option value="Palatino">Palatino</option>
+                                                                    <option value="Arial">Arial</option>
+                                                                    <option value="Geneva">Geneva</option>
+                                                                    <option value="Helvetica">Helvetica</option>
+                                                                    <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                                                                    <option value="Tahoma">Tahoma</option>
+                                                                    <option value="Verdana">Verdana</option>
+                                                                    <option value="Courier New">Courier New</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-opcoes">
+                                                            <div class="col-md-4">Estilo da fonte</div>
+                                                            <div class="col-md-8">
+                                                                <select class="form-control estilo-font">
+                                                                    <option value="">Selecione um estilo</option>
+                                                                    <option value="normal">Normal</option>
+                                                                    <option value="italic">Italic</option>
+                                                                    <option value="oblique">Oblique</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-opcoes">
+                                                            <div class="col-md-4">Aparência da fonte</div>
+                                                            <div class="col-md-8">
+                                                                <select class="form-control aparencia-font">
+                                                                    <option value="">Selecione uma aparência</option>
+                                                                    <option value="normal">Normal</option>
+                                                                    <option value="bold">Bold</option>
+                                                                    <option value="bolder">Bolder</option>
+                                                                    <option value="lighter">lighter</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-opcoes">
+                                                            <div class="col-md-4">Texto Maiúsculo</div>
+                                                            <div class="col-md-8">
+                                                                <div class="btn-group" data-toggle="buttons">
+                                                                    <span class="btn btn-success btn-maiusculo">
+                                                                        <input type="checkbox" class="style-borda"><span class="glyphicon glyphicon-ok"></span>Maiúsculo
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-opcoes">
+                                                            <div class="col-md-4">
+                                                                <label>Tamanho da Fonte</label>
+                                                                <span class="val-range valor-font-size">0</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="range" id="range-font-size" min="0" max="200" value="0" step="2" style="width: 100%">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row row-opcoes">
+                                                            <div class="col-md-4">
+                                                                <span>Cor da fonte:</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input class="jscolor cor-fonte" value="000000">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- COLLAPSE DE EDIÇÃO DO TEXTO -->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="preview-logo"></div>
+                                            </div>
+                                        </div>
+                                        <div class="canvas-download-logo" style="display:none;"></div>
+                                        <button type="button" class="btn btn-primary btn-download">Finalizar</button>
+                                    <!--****************************** CORPO DA JANELA MODAL ******************************-->
+                                    </div>
+                                    <div class="modal-footer" style="display:none;">
+                                        <a id="download-logo"></a>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ############### MODAL EDICÃO PARA CRIAÇÃO DE LOGO ############### -->
+                        <p></p>
+                    </div>
+                </div><!--FIM DA AREA DO JORNAL-->
+            </metal:main-macro>
+        </div>
+    </metal:main>
+
+    <metal:javascriptslot fill-slot="javascript_head_slot">
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jornal/jornal_main.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jornal/jornal_toolbars.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jornal/load_content.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jornal/jornal_dragdrop.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jornal/edit_txt.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jornal/edit_conteudo.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jornal/criacao_logo.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jqueryui.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jscolor.js"></script>
+
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/root_gerarjornal.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jquery.blockui-min.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/ajax_loading.js"></script>
+        <script type="text/javascript" tal:attributes="src string:${navroot}/++resource++senado.noticias/script/jornal/html2canvas.js"></script>
+    </metal:javascriptslot>
+
+    <metal:toponoticias fill-slot="topo-noticias"></metal:toponoticias>
+    <metal:menuusuario fill-slot="barra-verde-usuario"></metal:menuusuario>
+    <metal:barraedicao fill-slot="barraedicao"></metal:barraedicao>
+
+</tal:document>

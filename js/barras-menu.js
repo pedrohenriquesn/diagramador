@@ -1,15 +1,6 @@
-// function carregaMaterias() {
-//     $.ajax({
-//         url: 'js/json/listas.js',
-//         type: 'GET',
-//         success: function(res){
-//             debugger
-//         }
-//     });
-// }
+
 
 function carregaMaterias() {
-    
     for ( i = 0 ; i <= materiasList.length ; i++ ) {
         box = document.createElement('DIV')
         box.classList = 'materia drag-js'
@@ -32,6 +23,7 @@ function carregaMaterias() {
 
 
 $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
 
     $(document.body).on('click', '#menu-toggle', function(e){
         e.preventDefault();
@@ -44,6 +36,19 @@ $(document).ready(function(){
     });
 
     $(document.body).on('click', '.config', function(event){
-        $(".barra-sub-menu").slideToggle(100);
+        if ( $(".barra-sub-menu").attr('style') === 'display: block;') {
+            $(".erroSubmenu-js").slideToggle()
+            setTimeout(function(){
+                $(".erroSubmenu-js").slideToggle()
+            }, 2000);
+        } else {
+            $(event.target).closest('.column-default').attr( 'id', 'edicaoAtual' )
+            $(".barra-sub-menu").slideToggle(100);
+            $(event.target).closest('.drop-js').toggleClass('submenu-open')
+        }
+    });
+
+    $(document.body).on('click', '.action-drop', function(event){
+        $(this).find('.drop-submenu').slideToggle(300)
     });
 });

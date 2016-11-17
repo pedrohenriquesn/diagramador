@@ -73,9 +73,15 @@
     border: 1px dashed #0095DA;
     cursor: move;
 }
-/*-----------------------------------*/
-/* BARRA DO SUB MENU, MENU DA COLUNA */
-/*-----------------------------------*/
+
+/*---------------------------------------*/
+/*                                       */
+/*   BARRA DO SUB MENU, MENU DA COLUNA   */
+/*                                       */
+/*---------------------------------------*/
+.submenu-open {
+    background-color: #FFF5EE;
+}
 .barra-sub-menu {
 	width: 100%;
 	height: 30px;
@@ -84,28 +90,107 @@
 	position: fixed;
 	margin-top: 40px;
     z-index: 999;
+    box-shadow: 0px 2px 2px #888;
+}
+
+.sub-menu {
+    display: inline-flex;
+}
+
+.box-submenu {
+    padding: 3px 5px;
+    min-width: 40px;
+    text-align: center;
+    color: #FFF;
+}
+.box-submenu:hover {
+    border-bottom: 3px solid #EDEDED;
+    background-color: #00BFFF;
+    cursor:  pointer;
+}
+
+.box-submenu .glyphicon {
+    font-size: 20px;
+    color: #FFF;
+}
+
+.glyphicon-remove-circle:hover {
+    color: red;
+}
+
+/*------------------------------------*/
+/*                                    */
+/*    DROPDOWN`S BARRA DO SUB MENU    */
+/*                                    */
+/*------------------------------------*/
+.drop-submenu {
+    z-index: 999;
+    border-top: 4px solid #EDEDED;
+    position: absolute;
+    min-height: 50px;
+    min-width: 100px;
+    background-color: #0095DA;
+    display: none;
+    padding-bottom: 10px;
+}
+
+.op-drop {
+    height: 40px;
+    margin: 2px 5px;
+    padding: 5px;
+    display: flex;
+}
+
+.op-drop:hover {
+    background-color: #00BFFF;
+    cursor:  pointer;
 }
 
 
 
 
 
+/*------------------------------------*/
+/*                                    */
+/*         DROPDOWN DAS BORDAS        */
+/*                                    */
+/*------------------------------------*/
+.linha-topo {
+    border-top: 5px solid #FFF;
+    border-right: 1px solid #FFF;
+    border-left: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
+    height: 30px;
+    width: 30px;
+}
+.linha-direita {
+    border-top: 1px solid #FFF;
+    border-right: 5px solid #FFF;
+    border-left: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
+    height: 30px;
+    width: 30px;
+}
+.linha-baixo {
+    border-top: 1px solid #FFF;
+    border-right: 1px solid #FFF;
+    border-left: 1px solid #FFF;
+    border-bottom: 5px solid #FFF;
+    height: 30px;
+    width: 30px;
+}
+.linha-esquerda {
+    border-top: 1px solid #FFF;
+    border-right: 1px solid #FFF;
+    border-left: 5px solid #FFF;
+    border-bottom: 1px solid #FFF;
+    height: 30px;
+    width: 30px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.op-drop span {
+    margin-left: 10px;
+}
 
 
 
