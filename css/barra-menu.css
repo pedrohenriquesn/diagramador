@@ -127,7 +127,7 @@
     z-index: 999;
     border-top: 4px solid #EDEDED;
     position: absolute;
-    min-height: 50px;
+    /* min-height: 50px; */
     min-width: 100px;
     background-color: #0095DA;
     display: none;
@@ -135,7 +135,7 @@
 }
 
 .op-drop {
-    height: 40px;
+    min-height: 40px;
     margin: 2px 5px;
     padding: 5px;
     display: flex;
@@ -145,10 +145,6 @@
     background-color: #00BFFF;
     cursor:  pointer;
 }
-
-
-
-
 
 /*------------------------------------*/
 /*                                    */
@@ -191,6 +187,71 @@
 .op-drop span {
     margin-left: 10px;
 }
+
+/*------------------------------------*/
+/*                                    */
+/*   DROPDOWN DA POSICAO DA IMAGEM    */
+/*                                    */
+/*------------------------------------*/
+.moldura-box {
+    border: 1px solid #FFF;
+    padding: 3px;
+    margin-left: 16px;
+    width: 50px;
+}
+.moldura-box span {
+    margin: 0 !important;
+    font-size: 16px !important;
+}
+
+
+
+
+.box-color {
+    display: none;
+}
+.btn-color span {
+    font-size: 12px !important;
+    margin: 0 !important;
+}
+
+
+/*--------------------------------------------*/
+/*                                            */
+/*  CONFIG DO ITEM DA MODAL DE REDES SOCIAIS  */
+/*                                            */
+/*--------------------------------------------*/
+.op-redes-social {
+    margin-bottom: 10px;
+}
+.rede-social{
+    display: none;
+    margin-bottom: 10px;
+}
+.icon-social {
+    cursor: pointer;
+    opacity: 0.5;
+}
+.icon-social:hover {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

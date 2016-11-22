@@ -49,6 +49,8 @@ $(document).ready(function(){
     });
 
     $(document.body).on('click', '.action-drop', function(event){
-        $(this).find('.drop-submenu').slideToggle(300)
+        if (event.target.getAttribute('data-color') == 'paleta'){}else {
+            $(this).find('.drop-submenu').slideToggle(300)
+        }
     });
 });

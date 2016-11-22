@@ -51,9 +51,35 @@ $(document).ready(function(){
     //----------------------------------------------------------//
     //-----   Funcionalidade para inserir bordas coluna    -----//
     //----------------------------------------------------------//
-    $(document.body).on('click', '.excluir-js', function(event){
-        $(".barra-sub-menu").slideToggle(100)
-        $('#edicaoAtual').remove()
+    $(document.body).on('click', '.borda-js', function(event){
+        elemento = $('#edicaoAtual').find('.column-grid')[0]
+        posicao = this.getAttribute('data-position')
+        $(elemento).css("border-"+posicao+"", '3px solid #0095DA')
     });
+
+    //----------------------------------------------------------//
+    //-----   Funcionalidade para inserir bordas coluna    -----//
+    //----------------------------------------------------------//
+    $(document.body).on('change', '.bcolor-js', function(event){
+        cor = event.target.value
+        $('#edicaoAtual').find('.column-grid').css("background-color", "#"+cor+"")
+    });
+
+    //----------------------------------------------------------//
+    //-----  Funcionalidade para inserir as redes sociais  -----//
+    //----------------------------------------------------------//
+    $(document.body).on('click', '.icon-social', function(event){
+        social = this.getAttribute('data-social')
+        $('.field-socials').find('.social-'+social+'').slideToggle()
+    });
+    // $( ".icon-social" ).mouseover(function() {
+    //     $(this).css('display', 'none')
+    //     iconColor = $(this.parentNode).find('.icon-color')
+    //     $(iconColor).css('display', 'block')
+    // }).mouseout(function() {
+    //     $(this).css('display', 'block')
+    //     iconColor = $(this.parentNode).find('.icon-color')
+    //     $(iconColor).css('display', 'none')
+    // });
 
 });

@@ -24,6 +24,7 @@
     <script src="js/carregar-conteudo.js"></script>
     <script src="js/drag-drop.js"></script>
     <script src="js/submenu.js"></script>
+    <script src="js/jscolor.js"></script>
 
 
 </head>
@@ -37,6 +38,7 @@
         <div class="notaErro erroSubmenu-js">Outra Coluna esta em edicao no momento.</div>
         <div class="notaErro erroMinColuna-js">A coluna esta no menor tamanho permitido.</div>
         <div class="notaErro erroMaxColuna-js">A coluna esta no maior tamanho permitido.</div>
+        <div class="notaErro erroSizePage-js">Tamanho maximo da pagina atingido.</div>
     </div>
 
     <div class="barra-menu">
@@ -78,58 +80,132 @@
 
         <div class="barra-sub-menu">
             <div class="sub-menu">
+                <!-- Opcao para sair da barra -->
                 <div class="box-submenu sair-js" data-toggle="tooltip" data-placement="top" title="Sair">
                     <span class="glyphicon glyphicon-log-out"></span>
                 </div>
+                <!-- Opcao para diminuri coluna -->
                 <div class="box-submenu diminuir-js" data-toggle="tooltip" data-placement="top" title="Diminuir coluna">
                     <span class="glyphicon glyphicon-arrow-left"></span>
                 </div>
+                <!-- Opcao para aumentar coluna -->
                 <div class="box-submenu aumentar-js" data-toggle="tooltip" data-placement="top" title="Aumentar coluna">
                     <span class="glyphicon glyphicon-arrow-right"></span>
                 </div>
-                <div class="box-submenu" data-toggle="tooltip" data-placement="top" title="Posicionar imagem">
+                <!-- Opcao para posicionar a imagem -->
+                <div class="box-submenu action-drop" data-toggle="tooltip" data-placement="top" title="Posicionar imagem">
                     <span class="glyphicon glyphicon-picture"></span>
+                    <div class="drop-submenu">
+                        <div class="op-drop position-js" data-position="down">
+                            <div class="moldura-box">
+                                <span class="glyphicon glyphicon-align-left"></span><br />
+                                <span class="glyphicon glyphicon-picture"></span>
+                            </div>
+                        </div>
+                        <div class="op-drop position-js" data-position="top">
+                            <div class="moldura-box">
+                                <span class="glyphicon glyphicon-picture"></span><br />
+                                <span class="glyphicon glyphicon-align-left"></span>
+                            </div>
+                        </div>
+                        <div class="op-drop position-js" data-position="left">
+                            <div class="moldura-box">
+                                <span class="glyphicon glyphicon-picture"></span>
+                                <span class="glyphicon glyphicon-align-left"></span>
+                            </div>
+                        </div>
+                        <div class="op-drop position-js" data-position="right">
+                            <div class="moldura-box">
+                                <span class="glyphicon glyphicon-align-left"></span>
+                                <span class="glyphicon glyphicon-picture"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Opcao para auterar as fontes do titulo e do conteudo -->
                 <div class="box-submenu" data-toggle="tooltip" data-placement="top" title="Edicao de texto">
                     <span class="glyphicon glyphicon-font"></span>
                 </div>
+                <!-- Opcao para inserir e editar conteudo -->
                 <div class="box-submenu" data-toggle="tooltip" data-placement="top" title="Add conteudo">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </div>
+                <!-- Opcao para esconder ou mostrar elementos da materia -->
                 <div class="box-submenu action-drop" data-toggle="tooltip" data-placement="top" title="Add/Remover elementos">
                     <span class="glyphicon glyphicon-eye-close"></span>
                     <div class="drop-submenu">
-                        <div class="op-drop"></div>
-                        <div class="op-drop"></div>
-                        <div class="op-drop"></div>
-                        <div class="op-drop"></div>
-                        <div class="op-drop"></div>
+                        <div class="op-drop swap-js" data-swap="">
+                            <span class="glyphicon glyphicon-eye-close"></span>
+                            <span>Esconder imagem</span>
+                        </div>
+                        <div class="op-drop swap-js" data-swap="">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span>Mostrar imagem</span>
+                        </div>
+                        <div class="op-drop swap-js" data-swap="">
+                            <span class="glyphicon glyphicon-eye-close"></span>
+                            <span>Esconder Titulo</span>
+                        </div>
+                        <div class="op-drop swap-js" data-swap="">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span>Mostrar Titulo</span>
+                        </div>
                     </div>
                 </div>
+                <!-- Opcao para inserir bordas na materia -->
                 <div class="box-submenu action-drop" data-toggle="tooltip" data-placement="top" title="Bordas">
                     <span class="glyphicon glyphicon-unchecked"></span>
                     <div class="drop-submenu">
-                        <div class="op-drop">
+                        <div class="op-drop borda-js" data-position="top">
                             <div class="linha-topo"></div>
                             <span>Borda no topo</span>
                         </div>
-                        <div class="op-drop">
+                        <div class="op-drop borda-js" data-position="bottom">
                             <div class="linha-baixo"></div>
                             <span>Barra na base</span>
                         </div>
-                        <div class="op-drop">
+                        <div class="op-drop borda-js" data-position="right">
                             <div class="linha-direita"></div>
                             <span>Barra a direita</span>
                         </div>
-                        <div class="op-drop">
+                        <div class="op-drop borda-js" data-position="left">
                             <div class="linha-esquerda"></div>
                             <span>Barra a esquerda</span>
                         </div>
                     </div>
                 </div>
+                <!-- Opcao para trocar a cor do fundo da materia -->
+                <div class="box-submenu action-drop" data-toggle="tooltip" data-placement="top" title="Cor do fundo">
+                    <span class="glyphicon glyphicon-text-background"></span>
+                    <div class="drop-submenu">
+                        <div class="op-drop">
+                            <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}" data-color="paleta">
+                                Escolha a cor do fundo
+                            </button>
+                            <button type="button" class="btn btn-success btn-color"><span class="glyphicon glyphicon-ok"></span></button><!--
+                            <button type="button" class="btn btn-danger btn-color"><span class="glyphicon glyphicon-remove"></span></button> -->
+                            <input class="box-color bcolor-js" id="chosen-value" value="FFFFFF">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-submenu" data-toggle="tooltip" data-placement="top" title="Redes Socias">
+                    <div class="glyphicon glyphicon-globe" data-toggle="modal" data-target="#modalRedeSocial"></div>
+                </div>
+
+
+
+
+
+                <!-- Opcao para excluir -->
                 <div class="box-submenu excluir-js" data-toggle="tooltip" data-placement="top" title="Remover coluna">
                     <span class="glyphicon glyphicon-remove-circle">
                 </div>
+
+
+
+                <div class="box-submenu"></div>
+                <div class="box-submenu"></div>
                 <div class="box-submenu"></div>
             </div>
         </div>
@@ -159,6 +235,117 @@
     </div>
     <!-- /#container-page -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!---------------------------------------------->
+    <!--     Modal para inserir redes sociais     -->
+    <!---------------------------------------------->
+    <div class="modal fade" id="modalRedeSocial" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Redes Sociais</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row op-redes-social">
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/Whatsapp-color.svg"    data-social="whatsapp"></div>
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/Twitter-color.svg"     data-social="twitter"></div>
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/Skype-color.svg"       data-social="skype"></div>
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/Messenger-color.svg"   data-social="messenger"></div>
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/Snapchat-color.svg"    data-social="snapchat"></div>
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/Youtube-color.svg"     data-social="youtube"></div>
+                    </div>
+                    <div class="row op-redes-social">
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/Google-color.svg"      data-social="google"></div>
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/Hanghout-color.svg"    data-social="hanghout"></div>
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/Instagram-color.svg"   data-social="instagram"></div>
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/Flickr-color.svg"      data-social="flickr"></div>
+                        <div class="col-md-2"><img class="icon-social img-responsive" src="imagens/icons/GooglePlus-color.svg"  data-social="googlePlus"></div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <div class="row field-socials">
+                        <div class="row rede-social social-whatsapp">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/Whatsapp-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                        <div class="row rede-social social-twitter">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/Twitter-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                        <div class="row rede-social social-skype">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/Skype-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                        <div class="row rede-social social-messenger">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/Messenger-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                        <div class="row rede-social social-snapchat">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/Snapchat-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                        <div class="row rede-social social-youtube">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/Youtube-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                        <div class="row rede-social social-google">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/Google-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                        <div class="row rede-social social-hanghout">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/Hanghout-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                        <div class="row rede-social social-instagram">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/Instagram-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                        <div class="row rede-social social-flickr">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/Flickr-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                        <div class="row rede-social social-googlePlus">
+                            <div class="col-md-offset-1 col-md-3"><img class="img-responsive" src="imagens/icons/GooglePlus-color.svg"></div>
+                            <div class="col-md-8"><input type="text" class="link-rede-social"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 </body>
 
 </html>
+
+
+
+
+
+
+
+
