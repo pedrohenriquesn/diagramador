@@ -1,0 +1,389 @@
+html {
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #FFFFFF;
+    background-image: url("tpl/images/bg.png");
+    font-family: 'Raleway', sans-serif;
+    color: #868686;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    background: url("tpl/images/main-bg.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    float: left;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 1120px;
+}
+
+.left-sidebar {
+    width: 32.8%;
+    float: left;
+}
+
+.lsdb {
+    padding: 10px;
+}
+
+.container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: -5px 0 8px 0 rgba(0, 0, 0, 0.3);
+    min-width: 240px;
+    overflow: hidden;
+    width: 67.2%;
+    float: right;
+}
+
+/* -------------------------------------------------------- */
+
+.FGB {
+    padding: 20px 0px 10px 0px;
+}
+
+.FGB-H3 {
+    font-size: 14px;
+    padding: 0px 0px 10px 0px;
+}
+
+.RBTP {
+    padding: 20px 0px 20px 0px;
+}
+
+#CLS-GROUPS {
+    padding: 0px 0px 0px 15px;
+}
+
+#CLS-GROUPS a {
+    color: #000000;
+}
+
+.PL {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    padding: 10px 0 10px 10px;
+}
+
+.PL span {
+    font-family: 'Raleway', sans-serif;
+    color: #848484;
+    padding: 0 5px 0 0;
+}
+
+.PL a {
+    text-decoration: none;
+    color: #CBA523;
+    padding: 0 5px 0 0;
+}
+
+.VG-TOP {
+    vertical-align: top;
+}
+
+/* -------------------------------------------------------- */
+
+.searchform {
+    position: relative;
+}
+
+#s {
+    background-color: #CCCCCC;
+    border: 1px dashed #CACACA;
+    color: #000000;
+    font-size: 13px;
+    padding: 12px;
+    width: 270px;
+}
+
+.searchform input[type="submit"] {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0 none;
+    cursor: pointer;
+    height: 43px;
+    padding: 5px 5px 6px 10px;
+    position: absolute;
+    right: 0;
+    text-indent: -999em;
+    top: 0;
+    width: 50px;
+    z-index: 10;
+}
+
+.searchform input[type="submit"] + .fa-search {
+    color: #000000;
+    font-size: 14px;
+    opacity: 0.6;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.searchform input[type="submit"]:hover + .fa-search {
+    opacity: 1;
+}
+
+/* -------------------------------------------------------- */
+
+.ICF-LS {
+    font-size: 14px;
+    list-style: none outside none;
+    padding: 0px;
+    width: 100%;
+}
+
+.ICF-LS a {
+    text-decoration: none;
+    color: #CBA523;
+    font-size: 12px;
+}
+
+.ICF-LS li {
+    color: #CBA523;
+    padding: 10px;
+}
+
+.ICF-LS li:hover {
+    background: none repeat scroll 0 0 #CBA523;
+    color: #000000;
+}
+
+.ICF-LS li:hover a {
+    color: #000000;
+}
+
+.ICF {
+    border-radius: 10px 10px 10px 10px;
+    color: #141414;
+    display: inline-block;
+    float: right;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    min-width: 10px;
+    padding: 5px 7px 0;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+/* -------------------------------------------------------- */
+
+#navigation_menu {
+    font-weight: normal;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#navigation_menu li {
+    color: #777777;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 30px;
+    position: relative;
+}
+
+#navigation_menu li:last-child {
+    margin-right: 0;
+}
+
+#navigation_menu li a {
+    font-family: 'Raleway', sans-serif;
+    color: #777777;
+    display: block;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+#navigation_menu li a:hover {
+    color: #CBA523;
+    text-decoration: underline;
+}
+
+#navigation_menu ul {
+    background: none repeat scroll 0 0 #F4F4F4;
+    left: -9999px;
+    list-style: none outside none;
+    opacity: 0;
+    padding: 20px;
+    position: absolute;
+    z-index: 99;
+}
+
+#navigation_menu ul li {
+    float: left;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+    padding: 3px;
+    width: 200px;
+}
+
+#navigation_menu ul li a {
+    color: #282B30;
+}
+
+#navigation_menu ul a {
+    display: block;
+    white-space: nowrap;
+}
+
+#navigation_menu li:hover ul {
+    left: 0;
+    opacity: 1;
+}
+
+#navigation_menu li:hover a {
+    text-decoration: underline;
+}
+
+#navigation_menu li:hover ul a {
+    text-decoration: none;
+}
+
+/* -------------------------------------------------------- */
+
+.SDF-SH {
+    padding: 0px 10px 10px 10px;
+}
+
+.SDF-SH-BB {
+    vertical-align: top;
+}
+
+.SDF-SH-BB a {
+    text-decoration: none;
+}
+
+.SDF-SH-H3 {
+    color: #000000;
+    font-size: 14px;
+    margin: 0;
+    padding: 0px 0px 0px 10px;
+}
+
+.SDF-SH-IMG {
+    border: 1px solid #B0C4B8;
+    height: 102px;
+    padding: 5px;
+    width: 150px;
+}
+
+.SDF-SH-DDS {
+    font-family: 'Cormorant Garamond',serif;
+    font-size: 12px;
+    padding: 0 0 0 10px;
+    text-align: justify;
+}
+
+.BLOG-DSC {
+    font-family: 'Cormorant Garamond',serif;
+    font-size: 12px;
+    padding: 0 10px 10px;
+    text-align: justify;
+}
+
+.BLOG-IMG {
+    height: 450px;
+    padding: 0 10px 10px;
+    width: 710px;
+}
+
+/* -------------------------------------------------------- */
+
+.THMB-LIST {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0px 0px 0px 10px;
+}
+
+.THMB-LIST li {
+    border: 1px dashed #CCCCCC;
+    display: inline-block;
+    margin: 0 0 15px 10px;
+    padding: 5px;
+    position: relative;
+    width: 210px;
+}
+
+.THMB-LIST li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.THMB-LIST li img {
+    display: inline-block;
+    height: 120px;
+    width: 210px;
+}
+
+.THMB-LIST span {
+    border: 1px solid #CCCCCC;
+    display: none;
+    padding: 10px;
+    width: 200px; 
+}
+
+.THMB-LIST span #name {
+    font-family: 'Raleway', sans-serif;
+    color: #000000;
+    font-weight: normal;
+    font-size: 14px;
+    margin: 0px;
+}
+
+.THMB-LIST span #desc {
+    font-family: 'Raleway', sans-serif;
+    color: #777777;
+    font-size: 12px;
+    margin: 0px;
+}
+
+.THMB-LIST li:hover span {
+    background: none repeat scroll 0 0 #FAFAFA;
+    display: block;
+    left: -80px;
+    position: absolute;
+    top: 10px;
+    z-index: 22;
+}
+
+/* -------------------------------------------------------- */
+
+.L-IMG {
+    max-height: 500px;
+    width: 720px;
+}
+
+.PG {
+    font-size: 14px;
+    margin: 0px;
+}
+
+.PG strong {
+    color: #000000;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0px;
+    text-shadow: 0 1px #CBA523;
+}
+
+.PG a {
+    color: #CBA523;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+.BB-TN {
+    font-size: 14px;
+}

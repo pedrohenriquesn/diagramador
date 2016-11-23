@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<!-- FileName: index.html
+     Language: [en]
+-->
+<!--Head-->
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <title>Filtro de Acesso a Internet - Notificação</title>
+  <script src="/mwg-internal/de5fs23hu73ds/files/javascript/sw.js" type="text/javascript" ></script>
+  <link rel="stylesheet" href="/mwg-internal/de5fs23hu73ds/files/default/stylesheet.css" />
+</head>
+<!--/Head-->
+<!--Body-->
+<body onload="swOnLoad();">
+  <table class='bodyTable'>
+    <tr>
+      <td class='bodyData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_body.gif'>
+<!--Logo-->
+<table class='logoTable'>
+  <tr>
+    <td class='logoData'>
+      <a href='http://www.senado.gov.br'>
+        <img src='/mwg-internal/de5fs23hu73ds/files/default/img/senado.png'></a>
+    </td>
+  </tr>
+</table>
+<!--/Logo-->
+<!--Contents-->
+<!-- FileName: AuthorizedOnly.html
+     Language: [en]
+-->
+<!--Title-->
+<table class='titleTable' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>
+  <tr>
+    <td class='titleData'>
+      Acesso Negado
+    </td>
+  </tr>
+</table>
+<!--/Title-->
+
+<!--Content-->
+<table class="contentTable">
+  <tr>
+    <td class="contentData">
+      O acesso a esta categoria de Site é permitido somente a usuários autorizados pelo Ato 14/2011 da Primeira Secretaria. Caso necessite acessá-lo, favor entrar em contacto com seu Gerente de Relacionamento.
+    </td>
+  </tr>
+</table>
+<!--/Content-->
+
+<!--Info-->
+<table class="infoTable">
+  <tr>
+    <td class="infoData">
+      <b>Site: </b><script type="text/javascript">break_line("http://counter.yadro.ru/hit?t17.2;rhttp%3A//shushi168.com/imagens-hd.html;s1280*1024*24;uhttp%3A//shushi168.com/imagens-hd/35947903.html;0.7054800270645032");</script><br />
+      <script type="text/javascript">
+          writeToDocument("<b>Categoria do Site: </b>" + "Malicious Sites, Phishing, Malicious Downloads, PUPs (potentially unwanted programs)" );
+        </script><br />
+      <b>Regra: </b>Bloqueio por Categorias<br />
+      <b>Usuário: </b>pedrohsn<br />
+    </td>
+  </tr>
+</table>
+<!--/Info-->
+
+<!--/Contents-->
+<!--Policy-->
+<table class='policyTable'>
+  <tr>
+    <td class='policyHeading'>
+      <hr>
+      Política de Segurança do Senado Federal - 5.  Data 23/11 as 10:7:16
+    </td>
+  </tr>
+  <tr>
+    <td class='policyData'>
+      O acesso a Internet é regido por normas da Política de Segurança da Informação do Senado Federal.
+    </td>
+  </tr>
+</table>
+<!--/Policy-->
+<!--Foot-->
+<table class='footTable'>
+  <tr>
+    <td class='helpDeskData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>
+      Em caso de dúvida ou divergência, entre em contato com o seu Gerente de Relacionamento.
+    </td>
+  </tr>
+  <tr>
+    <td class='footData'>
+      generated <span id="time">2016-11-23 10:07:16</span>
+      <br />
+      Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36
+    </td>
+  </tr>
+</table>
+<!--/Foot-->
+      </td>
+    </tr>
+  </table>
+</body>
+<!--/Body-->
+</html>
+
