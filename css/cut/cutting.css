@@ -1,0 +1,30 @@
+.box-img {
+    overflow: hidden;
+    width: 100%;
+    border: 2px solid #000;
+}
+
+img.img-materia {
+    position: relative;
+}
+
+.cut-img {
+    position: absolute;
+    z-index: 999;
+    font-size: 66px;
+    margin: 10px;
+    color: white;
+    display: none;
+}
+.cut-img:hover {
+    display: block;
+    cursor: pointer;
+}
+
+.ctrl-height {
+    height: 10px;
+    width: 100%;
+    background-color: chartreuse;
+    cursor: n-resize;
+    display: none;
+}
