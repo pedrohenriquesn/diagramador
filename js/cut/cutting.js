@@ -1,4 +1,6 @@
 dragging = false;
+dragresize = false;
+
 proporcaoX = 1024; // proporcao da imagem para o scroll
 proporcaoY = 768; // proporcao da imagem para o scroll
 
@@ -10,6 +12,9 @@ stateY = null; // local inicial do click e arraste
 
 difX = null;
 difY = null;
+
+alturaClick = null;
+alturaImagem = null;
 
 
 $(document).ready(function(){
@@ -64,8 +69,31 @@ $(document).ready(function(){
         $(this).closest('.box-img').find('.cut-img').toggle();
     });
     $(document.body).on('click', '.cut-img', function(event){
-        debugger
         $(this).closest('.box-img').find('.img-materia').toggleClass('img-materia-cut')
+        $(this).closest('.box-img').find('.ctrl-height').toggle()
+        $(this).closest('.box-img').toggleClass('box-img-cut')
+    });
+
+    $(document.body).on('mousedown', '.ctrl-height', function(event){
+        dragresize = true;
+        alturaImagem = $(this).closest('.box-img').find('.img-materia').height()
+        alturaClick = event.originalEvent.clientY
+    });
+
+    $(document.body).on('mouseup', '.box-img', function(event){
+        dragresize = false;
+    });
+
+    $(document.body).on('mousemove', '.box-img-cut', function(event){
+        if (dragresize) {
+            // altura do local que foi clicado
+            altura = event.originalEvent.clientY
+            difMove = alturaClick-altura
+            newAltura = ((alturaImagem-difMove)+30)
+            resizeBar = ((difMove-(difMove*2))+15)
+            $(this).css('height', ''+newAltura+'px')
+            $(this).find('.ctrl-height').css('top', ''+resizeBar+'px')
+        }
     });
 
 });

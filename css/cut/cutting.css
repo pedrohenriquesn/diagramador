@@ -24,7 +24,9 @@ img.img-materia {
 .ctrl-height {
     height: 10px;
     width: 100%;
+    position: relative;
     background-color: chartreuse;
     cursor: n-resize;
     display: none;
+    top: 100%;
 }
