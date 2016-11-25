@@ -1,4 +1,7 @@
 .box-img {
+    width: 100%;
+}
+.box-img-crop {
     overflow: hidden;
     width: 100%;
     border: 2px solid #000;
@@ -25,12 +28,9 @@ img.img-materia {
     height: 10px;
     width: 100%;
     position: relative;
-    background-color: chartreuse;
+    background-color: #000;
     cursor: n-resize;
     display: none;
-    top: 100%;
+    bottom: 0;
 }
 
-.no-overflow {
-    overflow: hidden;
-}

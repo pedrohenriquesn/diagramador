@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A basic demo of Cropper.">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, image cropping, cropper, cropperjs, cropper.js, front-end, web development">
+    <meta name="author" content="Fengyuan Chen">
+    <title>Cropper.js</title>
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/tether.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/cropper.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <br /><br /><br />
+
+  <!-- Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <!-- <h3 class="page-header">Demo:</h3> -->
+                <div class="img-container">
+                    <img src="../assets/images/picture.jpg" alt="Picture">
+                </div>
+            </div>
+            <div class="col-md-3">
+            <div class="docs-preview clearfix">
+                <div class="img-preview preview-lg"></div>
+                <div class="img-preview preview-md"></div>
+                <div class="img-preview preview-sm"></div>
+                <div class="img-preview preview-xs"></div>
+            </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="row" id="actions">
+      <div class="col-md-9 docs-buttons">
+
+      </div><!-- /.docs-buttons -->
+
+      <div class="col-md-3 docs-toggles">
+        <!-- <h3 class="page-header">Toggles:</h3> -->
+        <div class="btn-group docs-aspect-ratios" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" class="sr-only" id="aspectRatio0" name="aspectRatio" value="1.7777777777777777" checked>
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 16 / 9">
+              16:9
+            </span>
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" class="sr-only" id="aspectRatio1" name="aspectRatio" value="1.3333333333333333">
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 4 / 3">
+              4:3
+            </span>
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" class="sr-only" id="aspectRatio2" name="aspectRatio" value="1">
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 1 / 1">
+              1:1
+            </span>
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" class="sr-only" id="aspectRatio3" name="aspectRatio" value="0.6666666666666666">
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: 2 / 3">
+              2:3
+            </span>
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" class="sr-only" id="aspectRatio4" name="aspectRatio" value="NaN">
+            <span class="docs-tooltip" data-toggle="tooltip" title="aspectRatio: NaN">
+              Free
+            </span>
+          </label>
+        </div>
+
+
+
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/tether.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../dist/cropper.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
