@@ -69,9 +69,12 @@ $(document).ready(function(){
         $(this).closest('.box-img').find('.cut-img').toggle();
     });
     $(document.body).on('click', '.cut-img', function(event){
+        zero()
+        $(this).closest('.box-img').find('.img-materia').removeClass('img-responsive')
         $(this).closest('.box-img').find('.img-materia').toggleClass('img-materia-cut')
         $(this).closest('.box-img').find('.ctrl-height').toggle()
         $(this).closest('.box-img').toggleClass('box-img-cut')
+        $(document.body).toggleClass('no-overflow')
     });
 
     $(document.body).on('mousedown', '.ctrl-height', function(event){
@@ -97,3 +100,25 @@ $(document).ready(function(){
     });
 
 });
+
+function zero(){
+
+    dragging = false;
+    dragresize = false;
+
+    proporcaoX = 1024; // proporcao da imagem para o scroll
+    proporcaoY = 768; // proporcao da imagem para o scroll
+
+    imgX = null; // posicao da imagem na tela
+    imgY = null; // posicao da imagem na tela
+
+    stateX = null; // local inicial do click e arraste
+    stateY = null; // local inicial do click e arraste
+
+    difX = null;
+    difY = null;
+
+    alturaClick = null;
+    alturaImagem = null;
+
+}

@@ -30,3 +30,7 @@ img.img-materia {
     display: none;
     top: 100%;
 }
+
+.no-overflow {
+    overflow: hidden;
+}
