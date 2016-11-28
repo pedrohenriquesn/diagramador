@@ -4,7 +4,7 @@
 .box-img-crop {
     overflow: hidden;
     width: 100%;
-    border: 2px solid #000;
+/*     border: 2px solid #000; */
 }
 
 img.img-materia {
@@ -12,12 +12,21 @@ img.img-materia {
 }
 
 .cut-img {
-    position: absolute;
+/*     position: absolute;
     z-index: 999;
-    font-size: 66px;
+    font-size: 54px;
     margin: 10px;
     color: white;
+    display: none; */
+    position: absolute;
+    z-index: 999;
+    font-size: 12px;
+    margin: 10px 50px;
+    color: white;
     display: none;
+    background-color: #0095DA;
+    border-radius: 32px;
+    padding: 9px;
 }
 .cut-img:hover {
     display: block;
@@ -28,9 +37,13 @@ img.img-materia {
     height: 10px;
     width: 100%;
     position: relative;
-    background-color: #000;
+    background-color: gray;
+    border-radius: 0 0 10px 10px;
     cursor: n-resize;
     display: none;
     bottom: 0;
 }
 
+.color-red {
+    color: red !important;
+}

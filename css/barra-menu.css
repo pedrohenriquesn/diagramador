@@ -281,6 +281,8 @@
     position: absolute;
     border-radius: 15px;
     padding-top: 3px;
-    display:none
+    display:none;
+    z-index: 999;
+    margin: 5px;
 }
 .column-grid:hover .config{display: block;}
